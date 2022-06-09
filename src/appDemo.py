@@ -1,22 +1,15 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-# import dash_daq as daq
 import plotly.express as px
-import pandas as pd
 import cv2
 import numpy as np
-import json
 import base64
-from keras.models import load_model
-from matplotlib import pyplot as plt
 from dash.dependencies import (Input, Output, State)
 from tensorflow import keras
 from IPython.display import Image, display
-import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import tensorflow as tf
-# import tensorflow.keras
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2D,BatchNormalization
 
