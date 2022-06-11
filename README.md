@@ -4,6 +4,9 @@
 The Data, for this project, were collected from Kaggle. https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database
 ImageTest.zip file consists of some images that you can use them as input of my CNN model.
 
+## Colab Notebook
+You can see the whole Colab Notebook by [clicking here](https://nbviewer.org/github/icsd13152/X-RayImageClassification_DL/blob/main/X_RayImageClassification_With_Deep_Learning.ipynb)
+
 ## Requirements
 
 In order to execute the Code, you must install the packages that their name and versions are located in requirements.txt file.
