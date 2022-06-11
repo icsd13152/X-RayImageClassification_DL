@@ -17,7 +17,7 @@ $ pip install -r requirements.txt
 
 ## Application
 Below an image of use-case for the application.  
-![mockup](https://github.com/icsd13152/X-RayImageClassification_DL/blob/main/mockup/mockup.PN?Graw=true)
+![mockup](https://github.com/icsd13152/X-RayImageClassification_DL/blob/main/mockup/mockup.PNG?raw=true)
 There is also the appDemo.py file that is the application for predictions.
 
 ```
