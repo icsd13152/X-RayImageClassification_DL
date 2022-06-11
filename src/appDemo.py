@@ -12,13 +12,14 @@ import matplotlib.cm as cm
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2D,BatchNormalization
+from plotly.graph_objects import Layout
+from plotly.validator_cache import ValidatorCache
 
 def createNeuralNet():
     model = Sequential()    #128
 
-    model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation = 'relu', input_shape = (70, 70, 3)))
-    # model.add(Conv2D(filters = 64, kernel_size = (3, 3), activation = 'relu'))
-
+    model.add(Conv2D(filters = 16, kernel_size = (3, 3), activation = 'relu', input_shape = (70, 70, 3)))
+    model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation = 'relu'))
     model.add(MaxPooling2D((2, 2)))
     model.add(Dropout(0.3))
     #64
@@ -27,6 +28,7 @@ def createNeuralNet():
     model.add(Dropout(0.5))
     #64
     model.add(Conv2D(filters = 128, kernel_size = (3, 3), activation = 'relu'))
+
     model.add(Dropout(0.3)) #0.5 without cw
     model.add(Flatten())
     model.add(Dense(1024, activation = 'relu'))
@@ -36,14 +38,12 @@ def createNeuralNet():
     model.add(Dense(16, activation = 'relu'))
     model.add(Dropout(0.2))
     # model.add(BatchNormalization())
-    model.add(Dense(4,activation = 'softmax')) #for Covid/Normal/Pneumonia/Lung_opacity maybe we need activation softmax
+    model.add(Dense(4,activation = 'softmax'))
 
-    model.load_weights('myCNNmodel_W_v13.h5')
+    model.load_weights('totalmyCNNmodel4_W_finalv2.h5')
 
-    model.compile(optimizer = tf.keras.optimizers.Adam(learning_rate=0.001),#learning_rate=0.001
+    model.compile(optimizer = tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss = tf.keras.losses.SparseCategoricalCrossentropy(),
-                  # run_eagerly=True,
-                  # update_weights=True,
                   )
 
     # model.summary()
@@ -303,7 +303,7 @@ def get_uploaded_image(contents, filenames, dates):
         imsrc,imgarr = parse_contents(contents, filenames, dates)
         pred = predict(imgarr)[1]
         probs = predict(imgarr)[0]
-        heatmap = make_gradcam_heatmap(imgarr, model, "conv2d_2",0 )
+        heatmap = make_gradcam_heatmap(imgarr, model, "conv2d_3",0 )
         plot = save_and_display_gradcam(np.squeeze(imsrc),heatmap)[1]
         print(plot)
         print(probs[0])
