@@ -18,6 +18,10 @@ $ pip install -r requirements.txt
 ```
 (it will take about 3-4 minutes. It depends on Network/Internet speed.)
 
+## Model Architecture
+Below the Architecture of deployed model.
+![arch](https://github.com/icsd13152/X-RayImageClassification_DL/blob/main/mockup/model4.PNG?raw=true)
+
 ## Application
 Below an image of use-case for the application.  
 ![mockup](https://github.com/icsd13152/X-RayImageClassification_DL/blob/main/mockup/mockup.PNG?raw=true)
